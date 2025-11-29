@@ -1,0 +1,206 @@
+/* 画面全体の背景とフォント */
+.container {
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+
+  background: #ffffff; /* 完全に白 */
+}
+/* 検索バー */
+.searchBar {
+  padding: 8px 12px;
+  border: 2px dotted #999999;
+  border-radius: 12px;
+  background: #ffffff;
+  font-size: 1rem;
+  color: #333333;
+  outline: none;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+}
+
+.searchBar:focus {
+  background: #f2f2f2;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+}
+
+/* テーブル全体 */
+.table {
+  width: 100%;
+  margin-top: 15px;
+  background: #ffffff;
+  border: 2px dashed #cccccc;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+}
+
+/* ヘッダー */
+.table th {
+  background: #444444;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px;
+  border-bottom: 2px dotted #cccccc;
+  text-align: center;
+}
+
+/* 行 */
+.table td {
+  padding: 8px;
+  border-bottom: 1px dotted #cccccc;
+  text-align: center;
+  color: #333333;
+}
+
+/* 偶数行に淡い背景 */
+.table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+/* チェックボックス */
+.table input[type="checkbox"] {
+  accent-color: #666666;
+  transform: scale(1.2);
+}
+
+/* タイトル */
+.title {
+  font-family: 'Yomogi', cursive;
+  font-size: 2rem;
+  color: #333333;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px #f2f2f2;
+}
+
+/* 件数表示 */
+.countDisplay {
+  font-size: 1.2rem;
+  color: #333333;
+  margin-bottom: 15px;
+}
+
+/* ボタンパネル */
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 15px 0;
+  padding: 10px;
+  background: #f9f9f9;
+  border: 2px dashed #cccccc;
+  border-radius: 12px;
+}
+
+/* ボタン本体 */
+.fancyButton {
+  background: #f2f2f2;
+  border: 2px dotted #999999;
+  border-radius: 12px;
+  padding: 8px 16px;
+  color: #333333;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+}
+
+.fancyButton:hover {
+  background: #e0e0e0;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+}
+
+.fancyButton:active {
+  animation: squish 0.2s;
+}
+
+@keyframes squish {
+  0% { transform: scale(1); }
+  50% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+/* ローディング */
+.loading {
+  font-size: 1.5rem;
+  color: #333333;
+  text-align: center;
+  margin: 20px 0;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ページネーション */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 10px;
+  background: #f9f9f9;
+  border: 2px dashed #cccccc;
+  border-radius: 12px;
+}
+/* 追加：検索バーラッパー */
+.searchBarWrapper {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* 追加：ボタンエリア全体 */
+.buttonArea {
+  margin-top: 20px;
+}
+
+
+
+
+.bgGradient {
+  background: linear-gradient(135deg, #7f7fd5, #86a8e7, #91eae4);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+
+.bgParticles {
+  background: radial-gradient(circle at top left, #8ec5fc, transparent 70%),
+              radial-gradient(circle at bottom right, #e0c3fc, transparent 70%);
+  position: relative;
+  overflow: hidden;
+}
+
+.bgParticles::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0.3;
+  animation: particlesMove 15s linear infinite;
+}
+
+@keyframes particlesMove {
+  from { transform: rotate(0deg) }
+  to { transform: rotate(360deg) }
+}
+
+
+
+.bgSoft {
+  background: linear-gradient(to bottom, #fdfbfb, #ebedee);
+}
