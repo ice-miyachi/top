@@ -351,6 +351,12 @@ const runWithLoading = async (fn: () => Promise<void> | void) => {
   return (
     <div className={styles.container}>
        <h1 className={styles.title}> Aぇ! group 掲載雑誌検索 23年まで</h1>
+       <label className={styles.subtitle}>雑誌掲載情報を検索・出力できます</label>
+       <label className={styles.subtitle}>データは23年までのものでインターネットにて拾えた情報のみを掲載しております</label>
+       <label className={styles.subtitle}>すべてを網羅しているわけではありませんのでご了承ください</label>
+       <label className={styles.subtitle}>24年に発売された6人の雑誌も含まれておりません</label>
+       <label className={styles.subtitle}>スマホをご利用の方はGoogleスプレッドシートをご利用いただくと編集やPDF化が出来ます</label>
+       <label className={styles.subtitle}>学習用に作ったものなので動作は保証できません。また突然非公開にする可能性があります</label>
 
       {/* 検索バー（上部固定） */}
       <div className={styles.searchBarWrapper}>
@@ -459,16 +465,16 @@ const runWithLoading = async (fn: () => Promise<void> | void) => {
   {/* チェック操作 */}
 <div className={styles.buttonGroup}>
   <button className={styles.fancyButton} onClick={() => setSelectedRows(results)}>
-    このページをすべて選択
+    このページをすべてチェック
   </button>
   <button className={styles.fancyButton} onClick={() => setSelectedRows([])}>
-    このページをすべて解除
+    このページのチェックをすべて解除
   </button>
   <button className={styles.fancyButton} onClick={selectAllMatching}>
-    検索結果をすべて選択
+    検索結果をすべてチェック
   </button>
   <button className={styles.fancyButton} onClick={clearAllMatching}>
-    検索結果をすべて解除
+    検索結果のチェックをすべて解除
   </button>
 </div>
 
@@ -478,18 +484,18 @@ const runWithLoading = async (fn: () => Promise<void> | void) => {
   <button className={styles.fancyButton} onClick={() => runWithLoading(() => exportToExcel())}>
     チェック済みをExcel出力
   </button>
-  <button className={styles.fancyButton} onClick={() => runWithLoading(() => exportToPDF())}>
+  {/* <button className={styles.fancyButton} onClick={() => runWithLoading(() => exportToPDF())}>
     チェック済みをPDF出力
   </button>
   <button className={styles.fancyButton} onClick={() => runWithLoading(() => exportToImage())}>
     チェック済みを画像出力
-  </button>
+  </button> */}
   <button className={styles.fancyButton} onClick={() => runWithLoading(() => downloadAllAsExcel())}>
     検索結果をすべてExcel出力
   </button>
-  <button className={styles.fancyButton} onClick={() => runWithLoading(() => downloadAllAsImage())}>
+ {/*  <button className={styles.fancyButton} onClick={() => runWithLoading(() => downloadAllAsImage())}>
     検索結果をすべて画像出力
-  </button>
+  </button> */}
   </div>
 
 
@@ -498,7 +504,7 @@ const runWithLoading = async (fn: () => Promise<void> | void) => {
       {/* //ローディング */}
       {loading && (
       <div className={styles.loading}>
-        💖 Now Loading... 💖
+        Now Loading...
       </div>
     )}
 

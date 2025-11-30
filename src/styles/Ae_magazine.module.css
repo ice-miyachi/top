@@ -204,3 +204,10 @@
 .bgSoft {
   background: linear-gradient(to bottom, #fdfbfb, #ebedee);
 }
+
+@media (max-width: 480px) {
+  .container {
+    transform: scale(0.85);
+    transform-origin: top center; /* 上基準で縮小 */
+  }
+}
