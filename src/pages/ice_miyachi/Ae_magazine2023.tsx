@@ -7,6 +7,7 @@ import autoTable from 'jspdf-autotable';
 import html2canvas from 'html2canvas';
 import styles from '../../styles/Ae_magazine.module.css';
 import { Analytics } from "@vercel/analytics/next"
+import Head from "next/head";
 
 
 
@@ -350,6 +351,7 @@ const runWithLoading = async (fn: () => Promise<void> | void) => {
 
   return (
     <div className={styles.container}>
+      <Head>
       <h1 className={styles.title}> Aぇ! group 掲載雑誌検索 23年まで</h1>
       <p className={styles.subtitle}>雑誌掲載情報を検索・出力できます</p>
       <p className={styles.subtitle}>データは23年までのものでインターネットにて拾えた情報のみを掲載しております</p>
@@ -360,6 +362,8 @@ const runWithLoading = async (fn: () => Promise<void> | void) => {
       <p className={styles.subtitle}>学習用に作ったものなので動作は保証できません。また突然非公開にする可能性があります</p>
       <p className={styles.subtitle}></p>
 
+       {/* ← これを追加！！ */}
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
       {/* 検索バー（上部固定） */}
       <div className={styles.searchBarWrapper}>
@@ -412,12 +416,13 @@ const runWithLoading = async (fn: () => Promise<void> | void) => {
             </select>
           </label>
         </div>
+      </Head>
      
 
 
 
       {/* 結果テーブル */}
-      <div style={{ marginTop: '10px', textAlign: 'center' }}>
+      <main>      <div style={{ marginTop: '10px', textAlign: 'center' }}>
         <span>
           検索結果件数: {totalCount} 件 ／ チェック済み: {selectedRows.length} 件
         </span>
@@ -464,6 +469,8 @@ const runWithLoading = async (fn: () => Promise<void> | void) => {
         </tbody>
       </table>
       </div>
+    </main>
+
 {/* ✅ Excel 出力ボタンはここに置く */}
 <div className={styles.buttonArea}>
   {/* チェック操作 */}
