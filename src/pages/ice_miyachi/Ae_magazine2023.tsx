@@ -1,12 +1,12 @@
 // src/pages/ice_miyachi/Ae_magazine2023.tsx
 import { useState, useEffect } from 'react';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '@/lib/supabase';
 import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import html2canvas from 'html2canvas';
 import styles from '../../styles/Ae_magazine.module.css';
-
+import { Analytics } from "@vercel/analytics/next"
 
 
 
