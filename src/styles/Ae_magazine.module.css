@@ -221,16 +221,26 @@ border-collapse: collapse;
 
 @media (max-width: 480px) {
 
-    body {
+/*     body {
         transform: scale(0.75);
         transform-origin: top center;
-    }
+    } */
   /* 全体の縮小（PCは影響なし） */
   .container {
     padding:0 10px;
     margin: 0;
   }
-  h1,h2,h3{
+  :global(h1) {
+    font-size: 18px !important;
+    margin: 0 0 4px 0;
+    line-height: 1.1;
+  }
+  :global(h2) {
+    font-size: 18px !important;
+    margin: 0 0 4px 0;
+    line-height: 1.1;
+  }
+  :global(h3) {
     font-size: 18px !important;
     margin: 0 0 4px 0;
     line-height: 1.1;
@@ -242,24 +252,31 @@ border-collapse: collapse;
     line-height: 1.1;
     margin-bottom: 3px;
   }
-  table {
+  :global(table) {
     font-size: 10px;
   }
 
   /* テーブル行を圧縮 */
-  .table td,
-  .table th {
-    padding: 3px 5px;
-    line-height: 1.1;
-    white-space: nowrap; /* ← 折り返し防止 */
+  :global(.table td),
+  :global(.table th) {
+    padding: 2px 4px !important;
+    height: 1.2em !important;
+    line-height: 1.2 !important;
+  }
+ /* 行間を狭くする */
+  .table tr {
+    height: 1.2em !important;
   }
 
-  /* チェックボックスを縮小 */
+  /* チェックボックスの余白も詰める */
   .table input[type="checkbox"] {
-    transform: scale(0.8);
+    margin: 0 !important;
   }
-  onput, select{
+  }
+  :global(input), 
+  :global(select){
     font-size: 12px;
     padding: 4px 6px;
+    
   }
-}
+
