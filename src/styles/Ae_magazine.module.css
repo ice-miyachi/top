@@ -221,30 +221,45 @@ border-collapse: collapse;
 
 @media (max-width: 480px) {
 
+    body {
+        transform: scale(0.75);
+        transform-origin: top center;
+    }
   /* 全体の縮小（PCは影響なし） */
   .container {
-    transform: scale(0.85);
-    transform-origin: top center;
+    padding:0 10px;
+    margin: 0;
+  }
+  h1,h2,h3{
+    font-size: 18px !important;
+    margin: 0 0 4px 0;
+    line-height: 1.1;
   }
 
   /* サブタイトル（説明文）を小さく＆行間詰める */
   .subtitle {
-    font-size: 11px;
-    line-height: 1.2;
-    margin-bottom: 2px;
+    font-size: 10px;
+    line-height: 1.1;
+    margin-bottom: 3px;
+  }
+  table {
+    font-size: 10px;
   }
 
   /* テーブル行を圧縮 */
   .table td,
   .table th {
-    padding: 4px 6px;
-    font-size: 10px;
-    line-height: 1.2;
+    padding: 3px 5px;
+    line-height: 1.1;
     white-space: nowrap; /* ← 折り返し防止 */
   }
 
   /* チェックボックスを縮小 */
   .table input[type="checkbox"] {
-    transform: scale(0.9);
+    transform: scale(0.8);
+  }
+  onput, select{
+    font-size: 12px;
+    padding: 4px 6px;
   }
 }
