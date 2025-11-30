@@ -221,14 +221,12 @@ border-collapse: collapse;
 
 @media (max-width: 480px) {
 
-/*     body {
-        transform: scale(0.75);
-        transform-origin: top center;
-    } */
+    body {
+        transform: none !important;
+    }
   /* 全体の縮小（PCは影響なし） */
   .container {
     padding:0 10px;
-    margin: 0;
   }
   :global(h1) {
     font-size: 18px !important;
@@ -253,15 +251,15 @@ border-collapse: collapse;
     margin-bottom: 3px;
   }
   :global(table) {
-    font-size: 10px;
+    font-size: 10px !important;
   }
 
   /* テーブル行を圧縮 */
   :global(.table td),
   :global(.table th) {
-    padding: 2px 4px !important;
-    height: 1.2em !important;
-    line-height: 1.2 !important;
+    padding: 3px 5px !important;
+    line-height: 1.1 !important;
+    white-space: nowrap;
   }
  /* 行間を狭くする */
   .table tr {
