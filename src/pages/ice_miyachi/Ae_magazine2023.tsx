@@ -349,85 +349,86 @@ const runWithLoading = async (fn: () => Promise<void> | void) => {
 
 
 
-  return (
-    <div className={styles.container}>
-      <Head>
-      <h1 className={styles.title}> Aぇ! group 掲載雑誌検索 23年まで</h1>
-      <p className={styles.subtitle}>雑誌掲載情報を検索・出力できます</p>
-      <p className={styles.subtitle}>データは23年までのものでインターネットにて拾えた情報のみを掲載しております</p>
-      <p className={styles.subtitle}>すべてを網羅しているわけではありませんのでご了承ください</p>
-      <p className={styles.subtitle}>24年に発売された6人の雑誌も含まれておりません</p>
-      <p className={styles.subtitle}>チェックボックスにチェックを入れたものを一覧にしたExcelファイルを出力できます</p>
-      <p className={styles.subtitle}>スマホをご利用の方はGoogleスプレッドシートをご利用いただくと編集やPDF化が出来ます</p>
-      <p className={styles.subtitle}>学習用に作ったものなので動作は保証できません。また突然非公開にする可能性があります</p>
-      <p className={styles.subtitle}></p>
+return (
+  <div className={styles.container}>
+    <Head>
+      <title>Aぇ! group 掲載雑誌検索 23年まで</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </Head>
 
-       {/* ← これを追加！！ */}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {/* ← ここから通常の画面 */}
+    <h1 className={styles.title}> Aぇ! group 掲載雑誌検索 23年まで</h1>
+    <p className={styles.subtitle}>雑誌掲載情報を検索・出力できます</p>
+    <p className={styles.subtitle}>データは23年までのものでインターネットにて拾えた情報のみを掲載しております</p>
+    <p className={styles.subtitle}>すべてを網羅しているわけではありませんのでご了承ください</p>
+    <p className={styles.subtitle}>24年に発売された6人の雑誌も含まれておりません</p>
+    <p className={styles.subtitle}>チェックボックスにチェックを入れたものを一覧にしたExcelファイルを出力できます</p>
+    <p className={styles.subtitle}>スマホをご利用の方はGoogleスプレッドシートをご利用いただくと編集やPDF化が出来ます</p>
+    <p className={styles.subtitle}>学習用に作ったものなので動作は保証できません。また突然非公開にする可能性があります</p>
 
-      {/* 検索バー（上部固定） */}
-      <div className={styles.searchBarWrapper}>
-        <input
-          type="text"
-          placeholder="タイトル検索"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className={styles.searchBar}
+    {/* 検索バー */}
+    <div className={styles.searchBarWrapper}>
+      <input
+        type="text"
+        placeholder="タイトル検索"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        className={styles.searchBar}
+      />
+    </div>
 
-        />
-      </div>
-              {/* メンバー検索 */}
-        <div>
-          {membersList.map((member) => (
-            <label key={member} style={{ marginRight: '10px' }}>
-        <input
-                type="checkbox"
-                value={member}
-                checked={selectedMembers.includes(member)}
-                onChange={(e) => {
-                  const checked = e.target.checked;
-                  setSelectedMembers((prev) =>
-                    checked ? [...prev, member] : prev.filter((m) => m !== member)
-                  );
-                }}
-              />
-              {member}
-            </label>
-          ))}
-        </div>
-      {/* 日付範囲検索 */}
-        <div>
-          <label>
-            開始日：
-            <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
-          </label>
-          <label style={{ marginLeft: '10px' }}>
-            終了日：
-            <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
-          </label>
-        </div>
-        {/* ユーザーで日付順を変えられるようにする */}
-        <div style={{ marginTop: '10px' }}>
-          <label>
-            並び順：
-            <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value as 'asc' | 'desc')}>
-              <option value="asc">発売日（古い順）</option>
-              <option value="desc">発売日（新しい順）</option>
-            </select>
-          </label>
-        </div>
-      </Head>
-     
+    {/* メンバー検索 */}
+    <div>
+      {membersList.map((member) => (
+        <label key={member} style={{ marginRight: "10px" }}>
+          <input
+            type="checkbox"
+            value={member}
+            checked={selectedMembers.includes(member)}
+            onChange={(e) => {
+              const checked = e.target.checked;
+              setSelectedMembers((prev) =>
+                checked ? [...prev, member] : prev.filter((m) => m !== member)
+              );
+            }}
+          />
+          {member}
+        </label>
+      ))}
+    </div>
 
+    {/* 日付範囲 */}
+    <div>
+      <label>
+        開始日：
+        <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
+      </label>
+      <label style={{ marginLeft: "10px" }}>
+        終了日：
+        <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
+      </label>
+    </div>
 
+    {/* 並び順 */}
+    <div style={{ marginTop: "10px" }}>
+      <label>
+        並び順：
+        <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value as "asc" | "desc")}>
+          <option value="asc">発売日（古い順）</option>
+          <option value="desc">発売日（新しい順）</option>
+        </select>
+      </label>
+    </div>
 
-      {/* 結果テーブル */}
-      <main>      <div style={{ marginTop: '10px', textAlign: 'center' }}>
+    {/* 結果 */}
+    <main>
+      <div style={{ marginTop: "10px", textAlign: "center" }}>
         <span>
           検索結果件数: {totalCount} 件 ／ チェック済み: {selectedRows.length} 件
         </span>
       </div>
-      <div className="table-wrapper">
+
+      <div className={styles["table-wrapper"]}>
         <table className={styles.table}>
           <thead>
             <tr>
@@ -439,98 +440,79 @@ const runWithLoading = async (fn: () => Promise<void> | void) => {
               <th>表紙</th>
             </tr>
           </thead>
-        <tbody>
-          {results.map((row) => (
-            <tr key={row.id}>
-              <td>
-                <input
-                  type="checkbox"
-                  checked={selectedRows.some(r => r.id === row.id)}
-                  onChange={(e) => {
-                    if (e.target.checked && selectedRows.length >= 999) {
-                      alert('チェックは最大999件までです');
-                      return;
-                    }
-                    if (e.target.checked) {
-                      setSelectedRows((prev) => [...prev, row]);
-                    } else {
-                      setSelectedRows((prev) => prev.filter((r) => r.id !== row.id));
-                    }
-                  }}
-                />
-              </td>
-              <td>{row.release_date}</td>
-              <td>{row.title}</td>
-              <td>{row.members?.join(', ')}</td>
-              <td>{row.notes || ''}</td>
-              <td>{row.is_cover ? '✔' : ''}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+
+          <tbody>
+            {results.map((row) => (
+              <tr key={row.id}>
+                <td>
+                  <input
+                    type="checkbox"
+                    checked={selectedRows.some((r) => r.id === row.id)}
+                    onChange={(e) => {
+                      if (e.target.checked && selectedRows.length >= 999) {
+                        alert("チェックは最大999件までです");
+                        return;
+                      }
+                      if (e.target.checked) {
+                        setSelectedRows((prev) => [...prev, row]);
+                      } else {
+                        setSelectedRows((prev) => prev.filter((r) => r.id !== row.id));
+                      }
+                    }}
+                  />
+                </td>
+
+                <td>{row.release_date}</td>
+                <td>{row.title}</td>
+                <td>{row.members?.join(", ")}</td>
+                <td>{row.notes || ""}</td>
+                <td>{row.is_cover ? "✔" : ""}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </main>
 
-{/* ✅ Excel 出力ボタンはここに置く */}
-<div className={styles.buttonArea}>
-  {/* チェック操作 */}
-<div className={styles.buttonGroup}>
-  <button className={styles.fancyButton} onClick={() => setSelectedRows(results)}>
-    このページをすべてチェック
-  </button>
-  <button className={styles.fancyButton} onClick={() => setSelectedRows([])}>
-    このページのチェックをすべて解除
-  </button>
-  <button className={styles.fancyButton} onClick={selectAllMatching}>
-    検索結果をすべてチェック
-  </button>
-  <button className={styles.fancyButton} onClick={clearAllMatching}>
-    検索結果のチェックをすべて解除
-  </button>
-</div>
-
-
-  {/* 出力 */}
-<div className={styles.buttonGroup}>
-  <button className={styles.fancyButton} onClick={() => runWithLoading(() => exportToExcel())}>
-    チェック済みをExcel出力
-  </button>
-  {/* <button className={styles.fancyButton} onClick={() => runWithLoading(() => exportToPDF())}>
-    チェック済みをPDF出力
-  </button>
-  <button className={styles.fancyButton} onClick={() => runWithLoading(() => exportToImage())}>
-    チェック済みを画像出力
-  </button> */}
-  <button className={styles.fancyButton} onClick={() => runWithLoading(() => downloadAllAsExcel())}>
-    検索結果をすべてExcel出力
-  </button>
- {/*  <button className={styles.fancyButton} onClick={() => runWithLoading(() => downloadAllAsImage())}>
-    検索結果をすべて画像出力
-  </button> */}
-  </div>
-
-
-</div>
-
-      {/* //ローディング */}
-      {loading && (
-      <div className={styles.loading}>
-        Now Loading...
-      </div>
-    )}
-
-
-      {/* ページネーション */}
-      <div className={styles.pagination}>
-        <span>Page {page + 1} / {totalPages}</span>
-        <button className={styles.fancyButton} disabled={page === 0} onClick={() => setPage(0)}>最初へ</button>
-        <button className={styles.fancyButton} disabled={page === 0} onClick={() => setPage(p => p - 1)}>前へ</button>
-        <button className={styles.fancyButton} disabled={page + 1 >= totalPages} onClick={() => setPage(p => p + 1)}>次へ</button>
-        <button className={styles.fancyButton} disabled={page + 1 >= totalPages} onClick={() => setPage(totalPages - 1)}>最後へ</button>
+    {/* ボタンエリア */}
+    <div className={styles.buttonArea}>
+      <div className={styles.buttonGroup}>
+        <button className={styles.fancyButton} onClick={() => setSelectedRows(results)}>
+          このページをすべてチェック
+        </button>
+        <button className={styles.fancyButton} onClick={() => setSelectedRows([])}>
+          このページのチェックをすべて解除
+        </button>
+        <button className={styles.fancyButton} onClick={selectAllMatching}>
+          検索結果をすべてチェック
+        </button>
+        <button className={styles.fancyButton} onClick={clearAllMatching}>
+          検索結果のチェックをすべて解除
+        </button>
       </div>
 
+      <div className={styles.buttonGroup}>
+        <button className={styles.fancyButton} onClick={() => runWithLoading(() => exportToExcel())}>
+          チェック済みをExcel出力
+        </button>
 
-
+        <button className={styles.fancyButton} onClick={() => runWithLoading(() => downloadAllAsExcel())}>
+          検索結果をすべてExcel出力
+        </button>
+      </div>
     </div>
-  );
-  }
+
+    {/* ローディング */}
+    {loading && <div className={styles.loading}>Now Loading...</div>}
+
+    {/* ページネーション */}
+    <div className={styles.pagination}>
+      <span>Page {page + 1} / {totalPages}</span>
+      <button className={styles.fancyButton} disabled={page === 0} onClick={() => setPage(0)}>最初へ</button>
+      <button className={styles.fancyButton} disabled={page === 0} onClick={() => setPage((p) => p - 1)}>前へ</button>
+      <button className={styles.fancyButton} disabled={page + 1 >= totalPages} onClick={() => setPage((p) => p + 1)}>次へ</button>
+      <button className={styles.fancyButton} disabled={page + 1 >= totalPages} onClick={() => setPage(totalPages - 1)}>最後へ</button>
+    </div>
+  </div>
+);
+}
