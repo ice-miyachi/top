@@ -350,13 +350,16 @@ const runWithLoading = async (fn: () => Promise<void> | void) => {
 
   return (
     <div className={styles.container}>
-       <h1 className={styles.title}> Aぇ! group 掲載雑誌検索 23年まで</h1>
-       <label className={styles.subtitle}>雑誌掲載情報を検索・出力できます</label>
-       <label className={styles.subtitle}>データは23年までのものでインターネットにて拾えた情報のみを掲載しております</label>
-       <label className={styles.subtitle}>すべてを網羅しているわけではありませんのでご了承ください</label>
-       <label className={styles.subtitle}>24年に発売された6人の雑誌も含まれておりません</label>
-       <label className={styles.subtitle}>スマホをご利用の方はGoogleスプレッドシートをご利用いただくと編集やPDF化が出来ます</label>
-       <label className={styles.subtitle}>学習用に作ったものなので動作は保証できません。また突然非公開にする可能性があります</label>
+      <h1 className={styles.title}> Aぇ! group 掲載雑誌検索 23年まで</h1>
+      <p className={styles.subtitle}>雑誌掲載情報を検索・出力できます</p>
+      <p className={styles.subtitle}>データは23年までのものでインターネットにて拾えた情報のみを掲載しております</p>
+      <p className={styles.subtitle}>すべてを網羅しているわけではありませんのでご了承ください</p>
+      <p className={styles.subtitle}>24年に発売された6人の雑誌も含まれておりません</p>
+      <p className={styles.subtitle}>チェックボックスにチェックを入れたものを一覧にしたExcelファイルを出力できます</p>
+      <p className={styles.subtitle}>スマホをご利用の方はGoogleスプレッドシートをご利用いただくと編集やPDF化が出来ます</p>
+      <p className={styles.subtitle}>学習用に作ったものなので動作は保証できません。また突然非公開にする可能性があります</p>
+      <p className={styles.subtitle}></p>
+
 
       {/* 検索バー（上部固定） */}
       <div className={styles.searchBarWrapper}>

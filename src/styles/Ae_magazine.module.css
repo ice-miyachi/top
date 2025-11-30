@@ -2,9 +2,8 @@
 .container {
   min-height: 100vh;
   padding: 20px;
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-
-  background: #ffffff; /* 完全に白 */
+  font-family: "メイリオ", "Meiryo", "Yu Gothic", "游ゴシック", sans-serif;
+  background: #ffffff;
 }
 /* 検索バー */
 .searchBar {
@@ -65,7 +64,6 @@
 
 /* タイトル */
 .title {
-  font-family: 'Yomogi', cursive;
   font-size: 2rem;
   color: #333333;
   text-align: center;
@@ -150,12 +148,18 @@
 /* 追加：検索バーラッパー */
 .searchBarWrapper {
   margin-bottom: 10px;
-  text-align: center;
 }
 
 /* 追加：ボタンエリア全体 */
 .buttonArea {
   margin-top: 20px;
+}
+
+.subtitle {
+  display: block; 
+  font-size: 12px;      /* label を使う場合 */
+  line-height: 0.6;    /* ← 行間を詰めるポイント */
+  margin-bottom: 4px;  /* 行間がキツければ調整 */
 }
 
 
@@ -207,7 +211,7 @@
 
 @media (max-width: 480px) {
   .container {
-    transform: scale(0.85);
+    transform: scale(0.70);
     transform-origin: top center; /* 上基準で縮小 */
   }
 }
