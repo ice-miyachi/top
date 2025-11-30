@@ -36,6 +36,8 @@
 border-collapse: collapse;
 }
 
+
+
 /* ヘッダー */
 .table th {
   background: #444444;
@@ -168,8 +170,6 @@ border-collapse: collapse;
 .subtitle {
   display: block; 
   font-size: 12px;      /* label を使う場合 */
-  line-height: 0.6;    /* ← 行間を詰めるポイント */
-  margin-bottom: 4px;  /* 行間がキツければ調整 */
 }
 
 
@@ -220,8 +220,31 @@ border-collapse: collapse;
 }
 
 @media (max-width: 480px) {
+
+  /* 全体の縮小（PCは影響なし） */
   .container {
-    transform: scale(1);
-    transform-origin: top center; /* 上基準で縮小 */
+    transform: scale(0.85);
+    transform-origin: top center;
+  }
+
+  /* サブタイトル（説明文）を小さく＆行間詰める */
+  .subtitle {
+    font-size: 11px;
+    line-height: 1.2;
+    margin-bottom: 2px;
+  }
+
+  /* テーブル行を圧縮 */
+  .table td,
+  .table th {
+    padding: 4px 6px;
+    font-size: 10px;
+    line-height: 1.2;
+    white-space: nowrap; /* ← 折り返し防止 */
+  }
+
+  /* チェックボックスを縮小 */
+  .table input[type="checkbox"] {
+    transform: scale(0.9);
   }
 }
