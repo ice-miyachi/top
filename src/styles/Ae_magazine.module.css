@@ -25,12 +25,15 @@
 /* テーブル全体 */
 .table {
   width: 100%;
+  font-size: 12px;  
   margin-top: 15px;
   background: #ffffff;
   border: 2px dashed #cccccc;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+  white-space: nowrap;   
+border-collapse: collapse;
 }
 
 /* ヘッダー */
@@ -41,6 +44,7 @@
   padding: 10px;
   border-bottom: 2px dotted #cccccc;
   text-align: center;
+  padding: 4px 6px;
 }
 
 /* 行 */
@@ -60,6 +64,12 @@
 .table input[type="checkbox"] {
   accent-color: #666666;
   transform: scale(1.2);
+}
+
+/* テーブル全体が横スクロール可能に */
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* タイトル */
@@ -211,7 +221,7 @@
 
 @media (max-width: 480px) {
   .container {
-    transform: scale(0.70);
+    transform: scale(1);
     transform-origin: top center; /* 上基準で縮小 */
   }
 }

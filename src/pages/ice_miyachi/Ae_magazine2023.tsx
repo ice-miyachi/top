@@ -422,7 +422,7 @@ const runWithLoading = async (fn: () => Promise<void> | void) => {
           検索結果件数: {totalCount} 件 ／ チェック済み: {selectedRows.length} 件
         </span>
       </div>
-
+      <div className="table-wrapper">
         <table className={styles.table}>
           <thead>
             <tr>
@@ -463,6 +463,7 @@ const runWithLoading = async (fn: () => Promise<void> | void) => {
           ))}
         </tbody>
       </table>
+      </div>
 {/* ✅ Excel 出力ボタンはここに置く */}
 <div className={styles.buttonArea}>
   {/* チェック操作 */}
