@@ -1,26 +1,23 @@
 import React from "react";
 
-export default function TaiseisFootpront() {
+export default function TaiseisFootprint() {
   return (
     <div
       style={{
-        margin: 0,
-        background: "#ffffff",
-        display: "flex",
-        justifyContent: "center",
+        width: "100%",
+        height: "100vh",
+        overflow: "hidden",
       }}
     >
-      <div
-        className="frame-wrap"
+      {/* Notion 埋め込み */}
+      <iframe
+        src="https://dynamic-noodle-39f.notion.site/2b7c89ce71ed8093a67ed3df59c57eb5?pvs=4"
         style={{
-          transform: "scale(0.5)",
-          transformOrigin: "top center",
           width: "100%",
+          height: "100%",
+          border: "none",
         }}
-      >
-        {/* Notion埋め込み */}
-<iframe
-  src="https://www.notion.so/2b7c89ce71ed8093a67ed3df59c57eb5"
-  style={{ width: '100%', height: '800px', border: 'none' }}
-></iframe>
-        
+      />
+    </div>
+  );
+}
