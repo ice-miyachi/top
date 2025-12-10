@@ -25,15 +25,15 @@ export default function TaiseisFootprint() {
       <div
         style={{
           width: "100%",
-          height: "100vh",
+          height: "100dvh", // ← ここ変更
           overflow: "hidden",
         }}
       >
         <iframe
           src="https://dynamic-noodle-39f.notion.site/ebd//2b7c89ce71ed8093a67ed3df59c57eb5"
           width="100%"
-          height="100vh"
-          frameBorder={0}
+          height="100%"
+          style={{ border: "none" }}
           allowFullScreen
         />
       </div>
