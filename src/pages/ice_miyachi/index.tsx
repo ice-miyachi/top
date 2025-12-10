@@ -1,8 +1,5 @@
 // src/pages/ice_miyachi/index.tsx
 import Link from 'next/link';
-import HomePage from "./ice_miyachi";
-
-export default HomePage;
 
 export default function Home() {
   return (
