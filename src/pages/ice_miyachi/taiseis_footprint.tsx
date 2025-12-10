@@ -19,5 +19,8 @@ export default function TaiseisFootpront() {
         }}
       >
         {/* Notion埋め込み */}
-        <iframe
-          src="https://www.notion.so/2b7c89ce71ed8093a67ed3
+<iframe
+  src="https://www.notion.so/2b7c89ce71ed8093a67ed3df59c57eb5"
+  style={{ width: '100%', height: '800px', border: 'none' }}
+></iframe>
+        
