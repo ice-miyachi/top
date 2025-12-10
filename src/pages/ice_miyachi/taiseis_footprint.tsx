@@ -9,7 +9,6 @@ export default function TaiseisFootprint() {
         overflow: "hidden",
       }}
     >
-      {/* Notion 埋め込み */}
       <iframe
         src="https://dynamic-noodle-39f.notion.site/2b7c89ce71ed8093a67ed3df59c57eb5?pvs=4"
         style={{
@@ -17,6 +16,7 @@ export default function TaiseisFootprint() {
           height: "100%",
           border: "none",
         }}
+        allow="fullscreen"
       />
     </div>
   );
