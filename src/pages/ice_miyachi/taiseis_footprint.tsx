@@ -9,7 +9,13 @@ export default function TaiseisFootprint() {
         overflow: "hidden",
       }}
     >
-      <iframe src="https://dynamic-noodle-39f.notion.site/ebd//2b7c89ce71ed8093a67ed3df59c57eb5" width="100%" height="600" frameborder="0" allowfullscreen />
+     <iframe
+  src="https://dynamic-noodle-39f.notion.site/ebd//2b7c89ce71ed8093a67ed3df59c57eb5"
+  width="100%"
+  height="600"
+  frameBorder={0}
+  allowFullScreen
+/>
     </div>
   );
 }
