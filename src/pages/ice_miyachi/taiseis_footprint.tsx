@@ -1,3 +1,31 @@
+import Head from "next/head";
+import { useEffect, useState } from "react";
+
+export default function Page() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // 画面幅でスマホ判定
+    setIsMobile(window.innerWidth <= 600);
+  }, []);
+
+  return (
+    <>
+      <Head>
+        <meta
+          name="viewport"
+          content={
+            isMobile
+              ? "width=device-width, initial-scale=0.5"
+              : "width=device-width, initial-scale=1"
+          }
+        />
+      </Head>
+      {/* ページ本体 */}
+    </>
+  );
+}
+
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 
