@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: [
               "default-src 'self' https: data: blob:",
-              "frame-ancestors *",
+              "frame-ancestors https://*.notion.site https://*.notion.so",
               "frame-src https://www.youtube.com https://www.youtube-nocookie.com https://*.notion.site https://*.notion.so",
               "child-src https://*.notion.site https://*.notion.so",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.notion.so https://*.notion.site",
