@@ -1,0 +1,8 @@
+/* スマホだけ50%縮小する */
+@media (max-width: 600px) {
+  .scale-50 {
+    transform: scale(0.5);
+    transform-origin: top left;
+    width: 200%;
+  }
+}
