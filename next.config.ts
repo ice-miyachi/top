@@ -8,8 +8,13 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Content-Security-Policy",
-            value:
-              "frame-ancestors *; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://*.notion.site https://*.notion.so; child-src 'self' https://*.notion.site https://*.notion.so;",
+            value: [
+              "default-src *",
+              "frame-ancestors *",
+              "frame-src * https://www.youtube.com https://www.youtube-nocookie.com https://*.notion.site https://*.notion.so",
+              "child-src * https://*.notion.site https://*.notion.so",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.notion.so https://*.notion.site",
+            ].join("; "),
           },
         ],
       },
