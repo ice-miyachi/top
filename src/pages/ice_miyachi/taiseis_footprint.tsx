@@ -30,7 +30,8 @@ export default function TaiseisFootprint() {
             src="https://dynamic-noodle-39f.notion.site/ebd//2b7c89ce71ed8093a67ed3df59c57eb5"
             style={{
               width: "100%",
-              height: "1200px",
+              height: "100%",
+              flex: 1,
               border: "none",
               display: "block",
             }}
