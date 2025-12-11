@@ -25,7 +25,7 @@ export default function TaiseisFootprint() {
           padding: 0,
           width: "100vw",
           height: "100dvh", 
-          minhight: "100vh",
+          minHeight: "100vh",
           overflow: "auto",
         }}
       >
