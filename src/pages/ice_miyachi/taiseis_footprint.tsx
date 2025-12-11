@@ -28,10 +28,5 @@ export default function TaiseisFootprint() {
     }}
     scrolling="yes"
   />
-</div>
-
-        </div>
-      </div>
-    </>
   );
 }
