@@ -31,6 +31,7 @@ export default function TaiseisFootprint() {
             style={{
               width: "100%",
               height: "100%",
+              minHeight:"1500px",
               flex: 1,
               border: "none",
               display: "block",
