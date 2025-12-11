@@ -13,7 +13,7 @@ export default function TaiseisFootprint() {
           margin: 0,
           padding: 0,
           width: "100vw",
-          height: "100dvh",
+          height: "100vh",   // ← vhで画面全体を確保
           overflow: "hidden",
         }}
       >
@@ -21,7 +21,7 @@ export default function TaiseisFootprint() {
           src="https://dynamic-noodle-39f.notion.site/2b7c89ce71ed8093a67ed3df59c57eb5?embed=true"
           style={{
             width: "100%",
-            height: "100%",
+            height: "100%",   // ← 親要素に合わせる
             border: "none",
             display: "block",
           }}
