@@ -21,7 +21,7 @@ export default function TaiseisFootprint() {
           src="https://dynamic-noodle-39f.notion.site/2b7c89ce71ed8093a67ed3df59c57eb5?embed=true"
           style={{
             width: "100%",
-            height: "100%",   // ← 親要素に合わせる
+            height: "10000px",   // ← 親要素に合わせる
             border: "none",
             display: "block",
           }}
