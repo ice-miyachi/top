@@ -25,14 +25,16 @@ export default function TaiseisFootprint() {
           padding: 0,
           width: "100vw",
           height: "100dvh", 
-          overflow: "hidden",
+          minhight: "100vh",
+          overflow: "auto",
         }}
       >
         <iframe
           src="https://dynamic-noodle-39f.notion.site/ebd//2b7c89ce71ed8093a67ed3df59c57eb5"
-          width="100%"
-          height="100%"
-          style={{ border: "none" }}
+          width="100%",
+          height="100%",
+          border= "none",
+          display= "block"
         />
       </div>
     </>
