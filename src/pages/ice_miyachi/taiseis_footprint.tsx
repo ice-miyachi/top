@@ -34,7 +34,7 @@ export default function TaiseisFootprint() {
           width="100%"
           height="1200px"
           scrolling="yes"
-          style={{ border: "none", display: "block" , transform: "(0.5)" ,transformOrigin: "top center"}}
+          style={{ border: "none", display: "block" , transform: "scale(0.5)" ,transformOrigin: "top center"}}
         />
       </div>
       </>
