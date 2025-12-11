@@ -13,7 +13,7 @@ export default function TaiseisFootprint() {
         style={{
           width: "100vw",
           height: "100dvh",
-          overflow: "auto",
+          overflow: "visible",
           display: "flex",
           justifyContent: "center",
           alignItems: "start",
