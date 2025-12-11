@@ -21,7 +21,7 @@ export default function TaiseisFootprint() {
       >
         <div
           style={{
-            transform: "scale(0.9)",
+            transform: "scale(1)",
             transformOrigin: "top center",
             width: "100%",
           }}
