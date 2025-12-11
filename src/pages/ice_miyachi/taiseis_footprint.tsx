@@ -12,22 +12,19 @@ export default function TaiseisFootprint() {
   return (
     <>
       <Head>
-        <meta
-          name="viewport"
-          content={
-            isMobile
-              ? "width=device-width, initial-scale=0.5"
-              : "width=device-width, initial-scale=1"
-          }
-        />
-      </Head>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
+</Head>
+
 
       <div
         style={{
           margin: 0,
           padding: 0,
           width: "100vw",
-          height: "100vh", 
+          height: "100dvh", 
           overflow: "hidden",
         }}
       >
