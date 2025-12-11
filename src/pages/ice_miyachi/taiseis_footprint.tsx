@@ -1,42 +1,33 @@
-// src/pages/ice_miyachi/taiseis_footprint.tsx
 import Head from "next/head";
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 export default function TaiseisFootprint() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth <= 600);
-  }, []);
-
   return (
     <>
       <Head>
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  />
-</Head>
-
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
 
       <div
         style={{
-          margin: 0,
-          padding: 0,
           width: "100vw",
-          height: "100dvh", 
-          minHeight: "100vh",
+          height: "100dvh",
           overflow: "auto",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "start",
         }}
       >
-        <iframe
-          src="https://dynamic-noodle-39f.notion.site/ebd//2b7c89ce71ed8093a67ed3df59c57eb5"
-          width="100%"
-          height="1200px"
-          scrolling="yes"
-          style={{ border: "none", display: "block" , transform: "scale(0.5)" ,transformOrigin: "top center"}}
-        />
-      </div>
-      </>
-  );
-}
+        <div
+          style={{
+            transform: "scale(0.9)",
+            transformOrigin: "top center",
+            width: "100%",
+          }}
+        >
+          <iframe
+            src="https://dynamic-noodle-39f.notion.site/ebd//2b7c89ce71ed8093a67ed3df59c57eb5"
+            style={{
+              width: "100%",
+              height: "1200px",
+              border: "none",
