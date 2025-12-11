@@ -1,6 +1,3 @@
-import Head from "next/head";
-import React from "react";
-
 export default function TaiseisFootprint() {
   return (
     <>
@@ -31,3 +28,12 @@ export default function TaiseisFootprint() {
               width: "100%",
               height: "1200px",
               border: "none",
+              display: "block",
+            }}
+            scrolling="yes"
+          />
+        </div>
+      </div>
+    </>
+  );
+}
