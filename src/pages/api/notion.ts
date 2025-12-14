@@ -6,9 +6,10 @@ const notion = new Client({ auth: process.env.NOTION_TOKEN });
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const databaseId = process.env.NOTION_DATABASE_ID!;
-    const response = await notion.databases.query({
+    const response = await (notion.databases as any).query({
       database_id: databaseId,
     });
+
     res.status(200).json(response);
   } catch (error: any) {
     res.status(500).json({ error: error.message });
