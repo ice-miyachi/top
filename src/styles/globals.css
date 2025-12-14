@@ -10,10 +10,12 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  min-height: 100%;
+  /* スクロールを無効化していたため修正 */
+  overflow: auto;
 }
 
+/* 親要素に高さを固定すると子のスクロールが抑制されるため min-height に変更 */
 body > div {
-  height: 100%;
+  min-height: 100%;
 }

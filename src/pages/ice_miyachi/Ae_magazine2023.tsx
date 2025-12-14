@@ -1,5 +1,5 @@
 // src/pages/ice_miyachi/Ae_magazine2023.tsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
 import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
@@ -28,8 +28,64 @@ export default function MagazineSearch() {
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [selectedRows, setSelectedRows] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+  const tableRef = useRef<HTMLTableElement | null>(null);
+  const headerRef = useRef<HTMLTableRowElement | null>(null);
+  const fixedHeaderRef = useRef<HTMLTableRowElement | null>(null);
+  const [isHeaderFixed, setIsHeaderFixed] = useState(false);
+  const [tablePosition, setTablePosition] = useState({ left: 0, width: 0 });
 
- 
+  // ヘッダー固定処理
+  useEffect(() => {
+    const handleScroll = () => {
+      if (headerRef.current && tableRef.current) {
+        const rect = headerRef.current.getBoundingClientRect();
+        const tableRect = tableRef.current.getBoundingClientRect();
+        const shouldFix = rect.top <= 0;
+        setIsHeaderFixed(shouldFix);
+        
+        // テーブルの位置と幅を記録
+        setTablePosition({
+          left: tableRect.left,
+          width: tableRect.width
+        });
+        
+        // 固定ヘッダーの列幅を元のテーブルと同期
+        if (fixedHeaderRef.current && headerRef.current) {
+          const originalCells = headerRef.current.cells;
+          const fixedCells = fixedHeaderRef.current.cells;
+          
+          for (let i = 0; i < originalCells.length; i++) {
+            if (fixedCells[i] && originalCells[i]) {
+              const computedStyle = window.getComputedStyle(originalCells[i]);
+              const width = originalCells[i].getBoundingClientRect().width;
+              const padding = parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight);
+              
+              fixedCells[i].style.width = `${width}px`;
+              fixedCells[i].style.minWidth = `${width}px`;
+              fixedCells[i].style.maxWidth = `${width}px`;
+              fixedCells[i].style.boxSizing = 'border-box';
+              fixedCells[i].style.padding = `${computedStyle.paddingTop} ${computedStyle.paddingRight} ${computedStyle.paddingBottom} ${computedStyle.paddingLeft}`;
+            }
+          }
+        }
+      }
+    };
+
+    handleScroll(); // 初回実行
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    
+    // テーブルのレンダリング後に再計算
+    const timer = setTimeout(handleScroll, 100);
+    const timer2 = setTimeout(handleScroll, 300);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+      clearTimeout(timer);
+      clearTimeout(timer2);
+    };
+  }, [results]);
 
   // データ取得
 
@@ -346,6 +402,8 @@ const runWithLoading = async (fn: () => Promise<void> | void) => {
   }
 };
 
+  // sticky ヘッダーはCSSで処理（JS不要）
+
 
 
 
@@ -429,9 +487,43 @@ return (
       </div>
 
       <div className={styles["table-wrapper"]}>
-        <table className={styles.table}>
+        {/* 固定ヘッダー */}
+        {isHeaderFixed && (
+          <div style={{
+            position: 'fixed',
+            top: 0,
+            left: `${tablePosition.left}px`,
+            width: `${tablePosition.width}px`,
+            zIndex: 1000,
+            backgroundColor: '#fff',
+            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+          }}>
+            <table className={styles.table} style={{ 
+              marginTop: 0, 
+              margin: 0, 
+              width: '100%', 
+              tableLayout: 'fixed',
+              borderTop: 'none',
+              borderRadius: 0,
+              borderCollapse: 'collapse'
+            }}>
+              <thead>
+                <tr ref={fixedHeaderRef}>
+                  <th>チェック</th>
+                  <th>発売日</th>
+                  <th>タイトル</th>
+                  <th>掲載者</th>
+                  <th>備考</th>
+                  <th>表紙</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        )}
+        
+        <table className={styles.table} ref={tableRef}>
           <thead>
-            <tr>
+            <tr ref={headerRef}>
               <th>チェック</th>
               <th>発売日</th>
               <th>タイトル</th>
@@ -444,7 +536,7 @@ return (
           <tbody>
             {results.map((row) => (
               <tr key={row.id}>
-                <td>
+                <td data-label="チェック">
                   <input
                     type="checkbox"
                     checked={selectedRows.some((r) => r.id === row.id)}
@@ -462,16 +554,18 @@ return (
                   />
                 </td>
 
-                <td>{row.release_date}</td>
-                <td>{row.title}</td>
-                <td>{row.members?.join(", ")}</td>
-                <td>{row.notes || ""}</td>
-                <td>{row.is_cover ? "✔" : ""}</td>
+                <td data-label="発売日">{row.release_date}</td>
+                <td data-label="タイトル">{row.title}</td>
+                <td data-label="掲載者">{row.members?.join(", ")}</td>
+                <td data-label="備考">{row.notes || ""}</td>
+                <td data-label="表紙">{row.is_cover ? "✔" : ""}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+
+      {/* 固定ヘッダーは CSS の position:sticky で処理します（JS で --table-header-offset を設定） */}
     </main>
 
     {/* ボタンエリア */}

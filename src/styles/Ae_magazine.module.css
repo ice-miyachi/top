@@ -4,8 +4,6 @@
   padding: 20px;
   font-family: "メイリオ", "Meiryo", "Yu Gothic", "游ゴシック", sans-serif;
   background: #ffffff;
-
-  /* ← 追加：スマホで横幅が暴れない */
   max-width: 900px;
   margin: 0 auto;
 }
@@ -34,21 +32,30 @@
   margin-top: 15px;
   background: #ffffff;
   border: 2px dashed #cccccc;
-  border-radius: 12px;
-  overflow: hidden;
   box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
   white-space: nowrap;
   border-collapse: collapse;
 }
 
+/* thead を見えなくして二重表示を防ぐ（JS で切り替え） */
+/* .table.hide-thead no longer used */
+
 /* ヘッダー */
 .table th {
-  background: #444444;
+  background: #444444 !important;
   color: #ffffff;
   font-weight: bold;
   padding: 4px 6px;
   border-bottom: 2px dotted #cccccc;
   text-align: center;
+  /* ネイティブ sticky を使用。JSで `--table-header-offset` を設定する */
+  position: -webkit-sticky !important;
+  position: sticky !important;
+  top: 8px !important;
+  /* 高い z-index を指定して他要素より前面に描画 */
+  z-index: 1000 !important;
+  /* 固定時に下の要素と視覚的に分ける */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15) !important;
 }
 
 /* 行 */
@@ -72,8 +79,7 @@
 
 /* テーブル全体が横スクロール可能に */
 .table-wrapper {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  width: 100%;
 }
 
 /* タイトル */
@@ -206,6 +212,44 @@
   .table input[type="checkbox"] {
     margin: 0 !important;
   }
+
+  /* モバイル向け：テーブル表示を維持しつつ文字と余白を小さくして全体表示する */
+    /* テーブル全体の文字サイズと余白を縮める（モバイル） */
+    .table {
+      font-size: 12px;
+      table-layout: fixed;
+      width: 100%;
+    }
+
+    .table th,
+    .table td {
+      padding: 6px 8px !important;
+      vertical-align: middle;
+      white-space: normal;
+      word-break: break-word;
+    }
+
+    .table th {
+      font-size: 12px;
+    }
+
+    /* チェックボックスをやや小さめに */
+    .table input[type="checkbox"] {
+      transform: scale(0.95);
+    }
+
+    /* 列間の余白を抑えて高さを圧縮 */
+    .table td {
+      line-height: 1.2;
+      padding-top: 6px;
+      padding-bottom: 6px;
+    }
+
+    /* テーブル外側の余白を少し減らす */
+    .table-wrapper {
+      padding-right: 8px;
+      padding-left: 8px;
+    }
 }
 
 /* ← メディアクエリの外に正しく置く */
