@@ -1,17 +1,15 @@
-// src/pages/api/notion.ts
-import { notion } from "@/lib/notion";
-import type { NextApiRequest, NextApiResponse } from "next";
+import { Client } from "@notionhq/client";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+const notion = new Client({ auth: process.env.NOTION_TOKEN });
+
+export default async function handler(req, res) {
   try {
-    const databaseId = process.env.NOTION_DATABASE_ID; // 環境変数で設定したデータベースID
+    const databaseId = process.env.NOTION_DATABASE_ID!;
     const response = await notion.databases.query({
-      database_id: databaseId!,
+      database_id: databaseId,
     });
-
-    res.status(200).json(response.results);
-  } catch (error) {
-    console.error("Notion API error:", error);
-    res.status(500).json({ error: "Failed to fetch Notion data" });
+    res.status(200).json(response);
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
   }
 }
