@@ -10,7 +10,7 @@ export default function TaiseisFootprint() {
   }, []);
 
   return (
-    
+    <>
       <Head>
   <meta
     name="viewport"
